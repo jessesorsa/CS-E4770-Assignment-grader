@@ -51,6 +51,9 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     expose:
       - 7000
+    deploy:
+      replicas: 2
+
 
   database:
     container_name: database-server-dab-p1-1dbad1fe-578d-4136-89a0-17c13ce21206
@@ -68,6 +71,15 @@ services:
     command: -connectRetries=60 -baselineOnMigrate=true migrate
     env_file:
       - project.env
+
+
+  redis:
+    image: redis:latest
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    expose:
+      - 6379
 
   e2e-playwright:
     entrypoint: "/bin/true"

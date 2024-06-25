@@ -75,6 +75,11 @@ const grade = async (code, testCode) => {
 
   const randomKey = Math.floor(Math.random() * 900000000 + 100000000);
 
+  console.log("code:");
+  console.log(code);
+  console.log("testCode:");
+  console.log(testCode);
+
   const graderContainerName = await createGradingContainer(
     code,
     testCode,
