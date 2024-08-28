@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        roboto: ['Roboto']
+      },
+    },
+  },
+  content: ["./src/**/*.{js,svelte}"],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+
 }
